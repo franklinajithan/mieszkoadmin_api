@@ -1,0 +1,20 @@
+{
+    "secret": "HDSUD-JASMC-$G61H-*H3NJ-9J3N6",
+    "refreshTokenSecret": "777SN-JASMC-$G61H-*H3NJ-9J3N6",
+    "port": 8800,
+    "tokenLife": 7200,
+    "refreshTokenLife": 7200,
+    "smtpPort": 587,
+    "fromEmailAddress": "cicd@*******.com",
+    "smtpAddress": "smtp.office365.com",
+    "emailAlertUsername": "cicd@*******..com",
+    "emailAlertPassword": "CSEmail2020@@",
+    "resetPasswordValidityInMinutes": 60,
+    "emailFooter": "This mailbox does not accept incoming messages and is not monitored. Please do not reply directly to this email message. You may call Champsoft at +94 112 199 352 if you have any questions.",
+    "infoLogStatus": true,
+    "errorLogStatus": true,
+    "debugLogStatus": true,
+    "refreshTokenPopupTimeoutInMinutes": 30,
+    "unverifiedUserTokenExpTimeInDays": 7,
+    "fileUploadLocation": "D://Projects//location//"
+}
