@@ -7,4 +7,6 @@ class PartyIdentificationVm {
     }
 }
 
+
+
 module.exports = PartyIdentificationVm;
