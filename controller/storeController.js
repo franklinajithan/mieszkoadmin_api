@@ -63,18 +63,22 @@ router.post('/add', async (req, res) => {
     }
 });
 
-router.post("/uploadPrice", async (req, res) => {
+
+router.post('/uploadPrice', async (req, res) => {
     const loggedInUser = jwt.verify(req.get("authorization"), config.secret);
-    const { store, itemDetails } = req.body;
+    const { file, selectedStote } = req.body;
     try {
-        const result = await store.uploadPrice(store, itemDetails);
+        const result = await store.uploadPriceDetails(selectedStote, JSON.parse(file));
+        console.log(result)
         res.status(200).json(result);
     } catch (err) {
         const error = err.code + ' | ' + err.sqlMessage + ' | ' + err.sql;
-        log.logInfo(enums.logLevel.Error, "Upload Price ", error, fileName, loggedInUser);
+        log.logInfo(enums.logLevel.Error, "Add Store Retrieval", error, fileName, loggedInUser);
         res.status(403).json("Error occurred");
     }
-})
+});
+
+
 
 
 

@@ -5,6 +5,7 @@ const config = require('../common/config.json');
 var mapper = require('automapper-js');
 var store = require('../viewModel/store.js');
 const filter = require('../common/filter.js');
+const { debug } = require('request');
 var data = {};
 
 data.getStoreList = function (userModel) {
@@ -17,11 +18,11 @@ data.getStoreList = function (userModel) {
             }
             else {
                 res.forEach(entry => {
-                                let storeVm = mapper(store, entry);
-                                filter.filterObject(storeVm);
-                                storeList.push(storeVm);
-                            });
-                            resolve(storeList);
+                    let storeVm = mapper(store, entry);
+                    filter.filterObject(storeVm);
+                    storeList.push(storeVm);
+                });
+                resolve(storeList);
             }
         });
     });
@@ -68,6 +69,35 @@ data.addStore = function (storename, location, address, postcode) {
         });
     });
 };
+
+data.uploadPriceDetails = function (selectedStore, file) {
+
+
+
+
+
+
+    debugger;
+    return new Promise((resolve, reject) => {
+        const sp_query = "SET @store, @barcode = ? ,@productname = ? ,@price = ? ; CALL UpdateProductList(@store, @barcode,@productname,@price);"
+        try {
+            file.forEach(async element => {
+debugger;
+                var params = [selectedStore, element[1], element[2], element[8]];
+
+                await connection.query(sp_query, params, (err, res) => {
+                    console.log(res)
+                    console.log(err)
+
+                })
+            });
+            return resolve("success");
+        } catch (error) {
+            console.log(error)
+        }
+    });
+};
+
 
 
 module.exports = data;

@@ -10,7 +10,7 @@ var data = {};
 data.getProductList = function (userModel) {
     var productList = [];
     return new Promise((resolve, reject) => {
-        var sp_query = "SELECT * FROM items;";
+        var sp_query = "SELECT * FROM products;";
         sql.query(sp_query, (err, res) => {
             if (err) {
                 reject(err);

@@ -1,18 +1,18 @@
 class productVm {
     constructor() {
 
-            this.ItemID = "",
-            this.Barcode = "",
-            this.ItemName = "",
-            this.Brand = ""
-            this.Price = "",
-            this.StockQuantity = "",
-            this.Category = "",
-            this.Quantity = "",
-            this.Size = ""
+            this.item_id = "",
+            this.barcode = "",
+            this.product_name = "",
+            this.brand = ""
+            this.price = "",
+            this.stock_quantity = "",
+            this.category = "",
+            this.quantity = "",
+            this.size = ""
             this.Image = "",
-            this.UOM = "",
-            this.SupplierID = ""
+            this.uom = "",
+            this.supplier_id = ""
 
     }
 }

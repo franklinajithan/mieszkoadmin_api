@@ -1,15 +1,14 @@
 const express = require('express');
+const multer = require("multer");
 const bodyParser = require('body-parser');
 const swaggerUi = require('swagger-ui-express');
 const mysql = require('mysql');
 const ports = require('./common/config.json');
-const fileupload = require('express-fileupload')
+// const fileupload = require('express-fileupload')
 const app = express();
 const port = process.env.PORT || ports.port;
 const swaggerDocument = require('./swagger.json');
-// var cors = require('cors');
-// import mysql from "mysql"
-// import cors from "cors"
+
 
 
 const db = mysql.createConnection({
@@ -18,6 +17,7 @@ const db = mysql.createConnection({
     password: "password",
     database: "retail"
 })
+
 
 
 app.use(function (req, res, next) {
@@ -34,6 +34,13 @@ app.use(function (req, res, next) {
 
 //ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 app.use(express.json())
+ // parse application/json
+ app.use(bodyParser.json({limit: "50mb"})); 
+
+ app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
+//  app.use(fileupload());
+ app.use(express.static('./public'))
+ app.use("/image", express.static("image"));
 // app.use(cors())
 // app.get("/", (req, res) => {
 //     res.json("hello this is the backend")
