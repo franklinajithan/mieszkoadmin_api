@@ -11,10 +11,17 @@ const swaggerDocument = require('./swagger.json');
 
 
 
+// const db = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "password",
+//     database: "retail"
+// })
+
 const db = mysql.createConnection({
-    host: "localhost",
+    host: "192.168.128.126:3307",
     user: "root",
-    password: "password",
+    password: "my-secret-pw",
     database: "retail"
 })
 
