@@ -59,14 +59,14 @@ const authController = require('./controller/authController.js');
 const loginController = require('./controller/loginController');
 const productController = require('./controller/productController.js');
 const storeController = require('./controller/storeController.js');
-
+const mspController = require('./controller/mspController.js');
 app.use('/apidocs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/help', helpController);
 app.use('/api/auth', authController);
 app.use('/api/login', loginController);
 app.use('/api/product', productController);
 app.use('/api/store', storeController);
-
+app.use('/api/msp', mspController);
 
 // app.get("/itemList", (req, res) => {
 //     const q = "SELECT * FROM items;"
